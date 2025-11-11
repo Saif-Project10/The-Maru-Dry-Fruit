@@ -1,0 +1,221 @@
+/* nav.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+:root {
+  --bg-color: #0b0b0b;
+  --text-color: #ffffff;
+  --accent: #ffd700;
+  --link-color: #ffeb9a;
+  --card-bg: #1a1a1a;
+  --card-border: rgba(255, 215, 0, 0.2);
+  --text-color-dark: #ffec9e; 
+  --text-color-soft: #aaa;
+}
+
+.light-mode {
+  --bg-color: #faf6e8;
+  --text-color: #2c2c2c;
+  --accent: #c28b2a;
+  --link-color: #a87400;
+  --card-bg: #f9f7f2;
+  --card-border: #d0c9b8;
+  --text-color-dark: #4b3e2a;
+  --text-color-soft: #6b5f4f;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 40px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  transition: background 0.5s ease;
+}
+
+/* Hamburger Menu (Mobile Only) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--accent);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 8px 5px;
+  display: block;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Dropdown */
+.nav-links li.account .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  min-width: 120px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.nav-links li.account:hover .dropdown {
+  display: block;
+}
+
+.nav-links li.account .dropdown a {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--link-color);
+}
+
+.nav-links li.account .dropdown a:hover {
+  background-color: rgba(255,215,0,0.1);
+  color: var(--accent);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: center;
+    padding: 12px 20px;
+    position: relative;
+  }
+
+  /* Show Hamburger on Mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Navigation Links - Hidden by default on mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Show navigation when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+
+  .nav-links li a {
+    padding: 15px 20px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Dropdown for mobile */
+  .nav-links li.account .dropdown {
+    position: static;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(255, 215, 0, 0.05);
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links li.account:hover .dropdown,
+  .nav-links li.account.active .dropdown {
+    display: block;
+  }
+
+  .nav-links li.account .dropdown a {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+}
+
+/* Desktop - Hide hamburger */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+  
+  .nav-links {
+    display: flex !important;
+  }
+}
+
+#navbar-placeholder, 
+#navbar-placeholder * {
+  font-family: 'Cinzel Decorative', serif !important;
+}

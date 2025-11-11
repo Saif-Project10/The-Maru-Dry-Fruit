@@ -1,0 +1,692 @@
+/* ===== Gifting Page Styles (Modern Theme) ===== */
+
+/* --- Scope styles to gifting page only --- */
+.gifting-page {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color); /* Modern background linked to navbar theme */
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Card Section */
+.gifting-page .card {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.gifting-page .card h1 {
+  color: var(--accent); /* Golden accent for headings */
+  font-size: 36px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+}
+
+/* Section Layout */
+.gifting-page .section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 25px 40px;
+  background-color: var(--bg-color); /* Subtle modern card bg */
+  border-radius: 16px;
+  border: 2px solid var(--card-border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Alternate layout */
+.gifting-page .section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Image Styles */
+.gifting-page .section img {
+  width: 33%;
+  height: 280px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gifting-page .section img:hover {
+  transform: scale(1.03);
+}
+
+/* heading*/
+h1 {
+  font-family: 'Cinzel Decorative', serif; /* consistent with navbar */
+  font-size: 36px;
+  color: #ffd700; /* gold accent like navbar */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Text Content */
+.gifting-page .text-content {
+  width: 55%;
+  text-align: justify;
+}
+
+.gifting-page .text-content h2 {
+  color: var(--accent);
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.gifting-page .text-content p {
+  line-height: 1.6;
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gifting-page .section {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .gifting-page .section img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gifting-page .text-content {
+    width: 100%;
+    text-align: center;
+  }
+}
+.quick-shop{
+  padding: 10px 60px;
+  border-radius: 10px;
+  background-color: #ffd700;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: black;
+}
+
+
+/* ================================
+   POPUP – LUXURY DARK THEME (FINAL)
+================================ */
+
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Popup Box */
+.popup {
+  background: linear-gradient(145deg, #181818, #212121);
+  color: #fff;
+  width: 90%;
+  max-width: 700px;
+  padding: 35px 28px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popupIn 0.4s forwards;
+}
+
+/* Entry Animations */
+@keyframes popupIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Close Button */
+.popup .close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.05) 100%);
+  color: #ffd700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,215,0,0.3);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+.popup .close:hover {
+  background: radial-gradient(circle, rgba(255,215,0,0.35) 0%, rgba(255,215,0,0.1) 100%);
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.6);
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Popup Image */
+.popup-image img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 22px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.55);
+}
+
+/* Details Section */
+.popup-details h2 {
+  color: #ffd700;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+.popup-details p {
+  text-align: center;
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Price Section */
+.popup-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.popup-price-section .old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 15px;
+}
+.popup-price-section .current-price {
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* Quantity Controls */
+.popup-quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.popup-quantity-control button {
+  background: linear-gradient(135deg, #ffd700, #ffcc00);
+  border: none;
+  color: #000;
+  font-size: 18px;
+  padding: 8px 14px;
+  margin: 0 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.popup-quantity-control button:hover {
+  background: linear-gradient(135deg, #ffea00, #ffcc33);
+  transform: scale(1.1);
+}
+.popup-quantity-control input {
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #555;
+  background: #121212;
+  color: #ffd700;
+  padding: 6px;
+}
+
+/* Add to Cart Button (centered) */
+.popup-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.popup-actions button {
+  padding: 14px 60px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #ffd700, #ffcc00);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.popup-actions button:hover {
+  background: linear-gradient(135deg, #ffea00, #ffcc33);
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+}
+/* ===========================
+   POPUP DROPDOWN (SIZE SELECTOR)
+   =========================== */
+.popup-size-selector select {
+  background: rgba(20, 20, 20, 0.9);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.15);
+  appearance: none; /* hide default arrow */
+  transition: all 0.3s ease;
+  width: 140px;
+  text-align: center;
+  background-image: linear-gradient(145deg, #1b1b1b, #252525);
+  position: relative;
+}
+
+/* Add custom dropdown arrow */
+.popup-size-selector {
+  position: relative;
+  display: inline-block;
+}
+.popup-size-selector::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffd700;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+/* Hover & Focus effects */
+.popup-size-selector select:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  background-image: linear-gradient(145deg, #222, #2b2b2b);
+}
+.popup-size-selector select:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+}
+
+/* Dropdown options styling */
+.popup-size-selector select option {
+  background: #121212;
+  color: #ffd700;
+  font-weight: 500;
+}
+ /* Add to Cart Modal Styles */
+    .cart-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.4s ease;
+    }
+    
+    .cart-modal {
+      background: linear-gradient(145deg, #181818, #212121);
+      color: #fff;
+      width: 90%;
+      max-width: 500px;
+      padding: 35px 28px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.12);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      transform: scale(0.9);
+      opacity: 0;
+      animation: popupIn 0.4s forwards;
+      text-align: center;
+    }
+    
+    .cart-modal .close-cart-modal {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.05) 100%);
+      color: #ffd700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,215,0,0.3);
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+    
+    .cart-modal .close-cart-modal:hover {
+      background: radial-gradient(circle, rgba(255,215,0,0.35) 0%, rgba(255,215,0,0.1) 100%);
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.6);
+      transform: rotate(90deg) scale(1.1);
+    }
+    
+    .cart-modal-icon {
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+    
+    .cart-modal h3 {
+      color: #ffd700;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    
+    .cart-modal p {
+      color: #ccc;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    .cart-modal-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .cart-modal-actions button {
+      padding: 12px 25px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .continue-shopping {
+      background: rgba(255, 215, 0, 0.1);
+      color: #ffd700;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    
+    .continue-shopping:hover {
+      background: rgba(255, 215, 0, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .view-cart {
+      background: linear-gradient(135deg, #ffd700, #ffcc00);
+      color: #000;
+    }
+    
+    .view-cart:hover {
+      background: linear-gradient(135deg, #ffea00, #ffcc33);
+      transform: translateY(-2px);
+    }
+    
+    /* Animations */
+    @keyframes popupIn {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+/* Responsive */
+@media (max-width: 700px) {
+  .popup {
+    padding: 22px;
+  }
+  .popup-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .popup-actions button {
+    width: 100%;
+  }
+}
+/* ==================================
+   COMPLETE RESPONSIVE MEDIA QUERIES
+   ================================== */
+
+/* Tablet Devices (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .gifting-page .section {
+    max-width: 900px;
+    padding: 30px;
+  }
+  
+  .gifting-page .section img {
+    height: 250px;
+  }
+  
+  .gifting-page .text-content h2 {
+    font-size: 22px;
+  }
+  
+  .gifting-page .text-content p {
+    font-size: 14px;
+  }
+}
+
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  .gifting-page .card {
+    padding: 40px 15px;
+  }
+  
+  .gifting-page .card h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .gifting-page .section {
+    padding: 20px;
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+  
+  .gifting-page .text-content h2 {
+    font-size: 20px;
+  }
+  
+  .gifting-page .text-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .quick-shop {
+    padding: 8px 40px;
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .gifting-page .card {
+    padding: 30px 10px;
+  }
+  
+  .gifting-page .card h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .gifting-page .section {
+    padding: 15px;
+    margin-bottom: 25px;
+    gap: 15px;
+  }
+  
+  .gifting-page .text-content h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .gifting-page .text-content p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .quick-shop {
+    padding: 8px 30px;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  /* Popup mobile adjustments */
+  .popup {
+    padding: 20px 15px;
+    width: 95%;
+  }
+  
+  .popup-details h2 {
+    font-size: 1.4rem;
+  }
+  
+  .popup-details p {
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Devices (360px and below) */
+@media (max-width: 360px) {
+  .gifting-page .card {
+    padding: 25px 8px;
+  }
+  
+  .gifting-page .card h1 {
+    font-size: 22px;
+  }
+  
+  .gifting-page .section {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .gifting-page .text-content h2 {
+    font-size: 16px;
+  }
+  
+  .gifting-page .text-content p {
+    font-size: 12px;
+  }
+  
+  .quick-shop {
+    padding: 6px 25px;
+    font-size: 12px;
+  }
+  
+  .popup {
+    padding: 18px 12px;
+  }
+  
+  .popup-details h2 {
+    font-size: 1.3rem;
+  }
+  
+  .popup-details p {
+    font-size: 13px;
+  }
+  
+  .popup-actions button {
+    padding: 12px 40px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Very Small Devices (320px and below) */
+@media (max-width: 320px) {
+  .gifting-page .card {
+    padding: 20px 5px;
+  }
+  
+  .gifting-page .card h1 {
+    font-size: 20px;
+  }
+  
+  .gifting-page .section {
+    padding: 10px;
+  }
+  
+  .gifting-page .text-content h2 {
+    font-size: 15px;
+  }
+  
+  .gifting-page .text-content p {
+    font-size: 11px;
+  }
+  
+  .quick-shop {
+    padding: 5px 20px;
+    font-size: 11px;
+  }
+  
+  .popup {
+    padding: 15px 10px;
+  }
+  
+  .popup-details h2 {
+    font-size: 1.2rem;
+  }
+  
+  .popup-actions button {
+    padding: 10px 30px;
+    font-size: 0.9rem;
+  }
+}
