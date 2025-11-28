@@ -1,17 +1,15 @@
-/* --------------------------
-   OFFERS SECTION
----------------------------*/
+/* ===== OFFERS SECTION (COMPLETELY REWRITTEN WITH ROOT VARIABLES) ===== */
+
 .offers-section {
   padding: 80px 20px;
   text-align: center;
-  /* background-color: #fdf7f0; */
+  background-color: var(--bg-color);
 }
 
 .offers-section h2 {
   font-size: 2.5em;
   margin-bottom: 50px;
-  color: #d2691e;
-
+  color: var(--accent);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -26,21 +24,17 @@
 
 /* Offer Cards */
 .offer-card {
-  background-color: #1a1a1a;
-
+  background-color: var(--card-bg);
   border-radius: 15px;
-  /* Soft yellow shadow */
-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
-/* Thin yellow border with slight transparency */
-border: 2px solid rgba(255, 215, 0, 0.2);
-
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+  border: 2px solid var(--card-border);
   width: 300px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0; /* For fade-in animation */
+  opacity: 0;
   transform: translateY(50px);
 }
 
@@ -59,207 +53,193 @@ border: 2px solid rgba(255, 215, 0, 0.2);
 
 .offer-card h3 {
   font-size: 1.5em;
-  color:  #ffec9e;
+  color: var(--text-color-dark);
   margin-bottom: 15px;
 }
 
 .offer-card p {
   font-size: 1em;
- 
-  color:  #aaa;
+  color: var(--text-color-soft);
   margin-bottom: 20px;
-  flex-grow: 1; /* Make text push the button down if needed */
+  flex-grow: 1;
 }
 
-/* Button always at bottom */
+/* Button */
 .cta-button {
   padding: 12px 25px;
-  background-color: #d2691e;
-  color: #fff;
+  background-color: var(--accent);
+  color: var(--bg-color);
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  align-self: center; /* center horizontally */
+  align-self: center;
 }
 
 .cta-button:hover {
-  background-color: #b25415;
+  background-color: var(--link-color);
+  color: var(--bg-color);
 }
 
-/* Responsive */
-@media (max-width: 1000px) {
-  .offer-card {
-    width: 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .offer-card {
-    width: 90%;
-  }
-}
-
-/* ======================================= */
-/*     OFFERS POPUP – DARK LUXURY V2 ✨    */
-/* ======================================= */
+/* ===== OFFERS POPUP (COMPLETELY VARIABLES-BASED) ===== */
 
 /* Overlay */
 .popup-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    animation: fadeIn 0.3s ease-in-out;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* Popup Box */
 .popup {
-    position: relative;
-    background: linear-gradient(145deg, #181818, #222);
-    color: #f5f5f5;
-    width: 90%;
-    max-width: 480px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    transform: scale(0.95);
-    transition: all 0.35s ease;
+  position: relative;
+  background: var(--card-bg);
+  color: var(--text-color);
+  width: 90%;
+  max-width: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+  transition: all 0.35s ease;
+  border: 1px solid var(--card-border);
 }
 .popup.show {
-    transform: scale(1);
+  transform: scale(1);
 }
 
-/* ✨ Animated Golden Border */
+/* Animated Golden Border */
 .popup::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 2px;
-    background: linear-gradient(120deg, #ffcc00, #d4a900, #ffcc00);
-    background-size: 300% 300%;
-    animation: borderGlow 4s linear infinite;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--accent), var(--link-color), var(--accent));
+  background-size: 300% 300%;
+  animation: borderGlow 4s linear infinite;
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
 }
 
 @keyframes borderGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Close Button (updated) */
+/* Close Button */
 .close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: rgba(255, 204, 0, 0.15);
-    color: #ffcc00;
-    border: 1px solid rgba(255, 204, 0, 0.4);
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.05);
-    z-index: 10; /* ✅ ensures it stays above image */
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 204, 0, 0.15);
+  color: var(--accent);
+  border: 1px solid var(--card-border);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.05);
+  z-index: 10;
 }
 .close:hover {
-    background: rgba(255, 204, 0, 0.35);
-    box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
-    transform: scale(1.1);
+  background: rgba(255, 204, 0, 0.35);
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+  transform: scale(1.1);
 }
 
-/* Image Section (small tweak) */
+/* Image Section */
 .popup-image {
-    position: relative; /* ✅ keeps image layer separate */
-    z-index: 1;
-    width: 95%;
-    height: 220px;
-    margin: 18px auto 12px auto;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.45);
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  height: 220px;
+  margin: 18px auto 12px auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.45);
 }
 
 .popup-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 .popup-image img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Details Section */
 .popup-details {
-    padding: 18px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  padding: 18px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .popup-details h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #ffcc00;
-    letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
 }
 
 .popup-details p {
-    font-size: 0.95rem;
-    color: #dcdcdc;
-    line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text-color-soft);
+  line-height: 1.6;
 }
 
 /* Price Section */
 .popup-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  gap: 10px;
 }
 
 .popup-price-section .current-price {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #ffcc00;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
 }
 .popup-price-section .old-price {
-    font-size: 1rem;
-    color: #777;
-    text-decoration: line-through;
+  font-size: 1rem;
+  color: var(--text-color-soft);
+  text-decoration: line-through;
 }
 
-/* ✨ Enhanced Dropdown (Offers Popup) */
+/* Dropdown */
 .popup-size-selector select {
   width: 100%;
   padding: 12px 18px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 204, 0, 0.3);
-  background: linear-gradient(145deg, #1f1f1f, #292929);
-  color: #ffeb99;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-color-dark);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -269,107 +249,97 @@ border: 2px solid rgba(255, 215, 0, 0.2);
 }
 
 .popup-size-selector select:hover {
-  border-color: #ffcc00;
+  border-color: var(--accent);
   box-shadow: 0 0 10px rgba(255, 204, 0, 0.35);
-  background: linear-gradient(145deg, #262626, #333);
+  background: var(--bg-color);
 }
 
 .popup-size-selector select:focus {
-  border-color: #ffd84d;
+  border-color: var(--link-color);
   box-shadow: 0 0 12px rgba(255, 204, 0, 0.45);
 }
 
-/* Optional: make dropdown arrow stylish */
 .popup-size-selector select {
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #ffcc00 50%), 
-                    linear-gradient(135deg, #ffcc00 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%), 
+                  linear-gradient(135deg, var(--accent) 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1em + 4px), calc(100% - 15px) calc(1em + 4px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
   padding-right: 40px;
 }
 
+.popup-size-selector select option {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
 /* Quantity Control */
 .popup-quantity-control {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0 15px 0;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 15px 0;
+  gap: 10px;
 }
 
 .popup-quantity-control button {
-    background: linear-gradient(145deg, #ffcc00, #e6b800);
-    color: #1f1f1f;
-    border: none;
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.25s;
+  background: linear-gradient(145deg, var(--accent), var(--link-color));
+  color: var(--bg-color);
+  border: none;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s;
 }
 .popup-quantity-control button:hover {
-    background: linear-gradient(145deg, #ffe066, #ffcc00);
-    transform: scale(1.1);
+  background: linear-gradient(145deg, var(--link-color), var(--accent));
+  transform: scale(1.1);
 }
 
 .popup-quantity-control input {
-    width: 50px;
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid #444;
-    background: #2c2c2c;
-    color: #f5f5f5;
-    font-size: 1rem;
-    padding: 5px;
+  width: 50px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 5px;
 }
 
 /* Add to Cart Button */
 .popup-actions {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
 }
 #addToCartBtn {
-    background: linear-gradient(145deg, #ffcc00, #d4a900);
-    color: #1f1f1f;
-    border-radius: 25px;
-    border: none;
-    padding: 12px 38px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
+  background: linear-gradient(145deg, var(--accent), var(--link-color));
+  color: var(--bg-color);
+  border-radius: 25px;
+  border: none;
+  padding: 12px 38px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
 }
 #addToCartBtn:hover {
-    background: linear-gradient(145deg, #ffe066, #ffcc00);
-    transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(145deg, var(--link-color), var(--accent));
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* Animation */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Responsive */
-@media (max-width: 500px) {
-    .popup-top {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .popup-quantity-control input {
-        width: 40px;
-    }
-}
-/* ================================
-   ADD TO CART MODAL STYLES
-================================ */
-
-/* Cart Modal Overlay */
+/* ===== CART MODAL STYLES ===== */
 .cart-modal-overlay {
   position: fixed;
   top: 0;
@@ -385,10 +355,9 @@ border: 2px solid rgba(255, 215, 0, 0.2);
   animation: fadeIn 0.4s ease;
 }
 
-/* Cart Modal Box */
 .cart-modal {
-  background: linear-gradient(145deg, #181818, #212121);
-  color: #fff;
+  background: var(--card-bg);
+  color: var(--text-color);
   width: 90%;
   max-width: 500px;
   padding: 35px 28px;
@@ -398,14 +367,13 @@ border: 2px solid rgba(255, 215, 0, 0.2);
   align-items: center;
   position: relative;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.12);
-  border: 1px solid rgba(255, 215, 0, 0.25);
+  border: 1px solid var(--card-border);
   transform: scale(0.9);
   opacity: 0;
   animation: popupIn 0.4s forwards;
   text-align: center;
 }
 
-/* Close Button */
 .cart-modal .close-cart-modal {
   position: absolute;
   top: 14px;
@@ -416,12 +384,12 @@ border: 2px solid rgba(255, 215, 0, 0.2);
   height: 38px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.05) 100%);
-  color: #ffd700;
+  color: var(--accent);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,215,0,0.3);
+  border: 1px solid var(--card-border);
   z-index: 10;
   transition: all 0.3s ease;
 }
@@ -432,27 +400,24 @@ border: 2px solid rgba(255, 215, 0, 0.2);
   transform: rotate(90deg) scale(1.1);
 }
 
-/* Cart Modal Icon */
 .cart-modal-icon {
   font-size: 3rem;
-  color: #ffd700;
+  color: var(--accent);
   margin-bottom: 15px;
 }
 
-/* Cart Modal Text */
 .cart-modal h3 {
-  color: #ffd700;
+  color: var(--accent);
   font-size: 1.6rem;
   margin-bottom: 10px;
 }
 
 .cart-modal p {
-  color: #ccc;
+  color: var(--text-color-soft);
   margin-bottom: 20px;
   line-height: 1.5;
 }
 
-/* Cart Modal Actions */
 .cart-modal-actions {
   display: flex;
   gap: 15px;
@@ -470,8 +435,8 @@ border: 2px solid rgba(255, 215, 0, 0.2);
 
 .continue-shopping {
   background: rgba(255, 215, 0, 0.1);
-  color: #ffd700;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--accent);
+  border: 1px solid var(--card-border);
 }
 
 .continue-shopping:hover {
@@ -480,15 +445,15 @@ border: 2px solid rgba(255, 215, 0, 0.2);
 }
 
 .view-cart {
-  background: linear-gradient(135deg, #ffd700, #ffcc00);
-  color: #000;
+  background: linear-gradient(135deg, var(--accent), var(--link-color));
+  color: var(--bg-color);
 }
 
 .view-cart:hover {
-  background: linear-gradient(135deg, #ffea00, #ffcc33);
+  background: linear-gradient(135deg, var(--link-color), var(--accent));
   transform: translateY(-2px);
 }
-/* Cart Modal Animation Fix */
+
 @keyframes popupIn {
   from {
     transform: scale(0.9);
@@ -500,242 +465,21 @@ border: 2px solid rgba(255, 215, 0, 0.2);
   }
 }
 
-.cart-modal {
-  animation: popupIn 0.4s forwards;
-}
 .no-scroll {
   overflow: hidden;
   height: 100%;
 }
 
+/* ===== COMPLETE RESPONSIVE MEDIA QUERIES ===== */
 
-/* ==================================
-   COMPLETE RESPONSIVE MEDIA QUERIES
-   ================================== */
-
-/* Tablet Devices (768px - 1024px) */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .offers-section {
-    padding: 70px 25px;
-  }
-  
-  .offers-section h2 {
-    font-size: 2.2em;
-  }
-  
-  .offer-card {
-    width: 280px;
-  }
-  
-  .popup {
-    max-width: 450px;
-  }
-}
-
-/* Medium Mobile Devices (600px - 768px) */
+/* Medium Mobile Devices (600px - 768px) - ADDED FROM OLD CSS */
 @media (max-width: 768px) and (min-width: 601px) {
   .offer-card {
     width: 48%;
   }
 }
 
-/* Mobile Devices (768px and below) */
-@media (max-width: 768px) {
-  .offers-section {
-    padding: 60px 15px;
-  }
-  
-  .offers-section h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
-  }
-  
-  .offers-container {
-    gap: 25px;
-  }
-  
-  .offer-card {
-    padding: 18px;
-  }
-  
-  .offer-card h3 {
-    font-size: 1.3em;
-  }
-  
-  .offer-card p {
-    font-size: 0.95em;
-  }
-  
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-/* Small Mobile Devices (480px and below) */
-@media (max-width: 480px) {
-  .offers-section {
-    padding: 50px 10px;
-  }
-  
-  .offers-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 30px;
-  }
-  
-  .offers-container {
-    gap: 20px;
-  }
-  
-  .offer-card {
-    width: 95%;
-    padding: 15px;
-  }
-  
-  .offer-card img {
-    height: 180px;
-    margin-bottom: 15px;
-  }
-  
-  .offer-card h3 {
-    font-size: 1.2em;
-    margin-bottom: 12px;
-  }
-  
-  .offer-card p {
-    font-size: 0.9em;
-    margin-bottom: 15px;
-  }
-  
-  .cta-button {
-    padding: 9px 18px;
-    font-size: 13px;
-  }
-  
-  /* Popup adjustments for small mobile */
-  .popup {
-    width: 95%;
-  }
-  
-  .popup-details {
-    padding: 15px;
-  }
-  
-  .popup-details h2 {
-    font-size: 1.4rem;
-  }
-  
-  .popup-details p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Extra Small Devices (360px and below) */
-@media (max-width: 360px) {
-  .offers-section {
-    padding: 40px 8px;
-  }
-  
-  .offers-section h2 {
-    font-size: 1.6em;
-  }
-  
-  .offer-card {
-    width: 98%;
-    padding: 12px;
-  }
-  
-  .offer-card img {
-    height: 160px;
-  }
-  
-  .offer-card h3 {
-    font-size: 1.1em;
-  }
-  
-  .offer-card p {
-    font-size: 0.85em;
-  }
-  
-  .cta-button {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-  
-  .popup {
-    width: 98%;
-  }
-  
-  .popup-image {
-    height: 200px;
-    margin: 15px auto 10px auto;
-  }
-  
-  .popup-details h2 {
-    font-size: 1.3rem;
-  }
-  
-  .popup-details p {
-    font-size: 0.85rem;
-  }
-  
-  #addToCartBtn {
-    padding: 10px 30px;
-    font-size: 1rem;
-  }
-}
-
-/* Very Small Devices (320px and below) */
-@media (max-width: 320px) {
-  .offers-section {
-    padding: 35px 5px;
-  }
-  
-  .offers-section h2 {
-    font-size: 1.5em;
-  }
-  
-  .offer-card {
-    padding: 10px;
-  }
-  
-  .offer-card img {
-    height: 150px;
-  }
-  
-  .offer-card h3 {
-    font-size: 1em;
-  }
-  
-  .offer-card p {
-    font-size: 0.8em;
-  }
-  
-  .cta-button {
-    padding: 7px 14px;
-    font-size: 11px;
-  }
-  
-  .popup {
-    width: 99%;
-  }
-  
-  .popup-image {
-    height: 180px;
-  }
-  
-  .popup-details h2 {
-    font-size: 1.2rem;
-  }
-  
-  #addToCartBtn {
-    padding: 8px 25px;
-    font-size: 0.95rem;
-  }
-}
-
 /* TO make responsive new CSS added */
-/* offers.css ke END mein ye code ADD karein */
 
 /* ===== OFFERS PAGE RESPONSIVE FIXES ===== */
 
