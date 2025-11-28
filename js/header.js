@@ -1,8 +1,11 @@
-// header.js - Simple working version
+// header.js - With Theme Persistence
 console.log("🔧 header.js loading...");
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ DOM loaded");
+    
+    // Load saved theme immediately
+    loadSavedTheme();
     
     fetch('./header.html')
         .then(response => {
@@ -23,6 +26,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
+// ✅ THEME PERSISTENCE FUNCTIONS
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light-mode') {
+        document.body.classList.add('light-mode');
+        console.log("🌞 Light theme loaded from storage");
+    } else {
+        document.body.classList.remove('light-mode');
+        console.log("🌙 Dark theme loaded from storage");
+    }
+}
+
+function saveTheme() {
+    const isLight = document.body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light-mode' : 'dark-mode');
+    console.log("💾 Theme saved:", isLight ? "light" : "dark");
+}
+
 function initializeHeader() {
     // Wait for Lucide to load
     setTimeout(() => {
@@ -40,12 +61,15 @@ function setupThemeToggle() {
         return;
     }
 
-    // Set initial icon
+    // Set initial icon based on saved theme
     updateToggleIcon();
     
     toggleBtn.addEventListener('click', function() {
         console.log("🌓 Toggle clicked");
         document.body.classList.toggle('light-mode');
+        
+        // ✅ SAVE THEME TO LOCALSTORAGE
+        saveTheme();
         updateToggleIcon();
         
         // Add animation

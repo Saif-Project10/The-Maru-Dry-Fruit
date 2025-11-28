@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const basePrice = productPrices[currentProduct].price * factor * quantity;
       const baseCut = productPrices[currentProduct].cut * factor * quantity;
 
-      priceEl.textContent = "₹" + Math.round(basePrice);
-      cutPriceEl.textContent = "₹" + Math.round(baseCut);
+      priceEl.textContent = "Rs" + Math.round(basePrice);
+      cutPriceEl.textContent = "Rs" + Math.round(baseCut);
     } catch (err) {
       console.warn('updatePrice error', err);
     }
